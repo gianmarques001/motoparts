@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site de Estoque</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <style>
+        .modal-dialog {
+            max-width: 40%;
+        }
+        .error-message {
+            color: red;
+            display: none;
+        }
+    </style>
+
+</head>
+<body onload="carregarEstoque()">
+<div id="mainContent" class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Estoque da Loja</h2>
+            <button class="btn btn-success mb-3" data-toggle="modal" data-target="#addItemEstoqueLoja">Adicionar
+            </button>
+            <table class="table table-striped">
+                <thead>
+                <tr>
+
+                    <th>Cod. Peça</th>
+                    <th>Nome</th>
+                    <th>Descrição</th>
+                    <th>Marca</th>
+                    <th>Quantidade</th>
+                    <th>Preço</th>
+                    <th><i class="fas fa-pencil-alt"></i></th>
+                    <th><i class="fas fa-id-card"></i></th>
+                    <th><i class="fas fa-trash-alt"></i></th>
+                </tr>
+                </thead>
+                <tbody id="estoqueLoja">
+                <!-- Dados do estoque da loja serão inseridos aqui -->
+
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="addItemEstoqueLoja" tabindex="-1" aria-labelledby="addItemEstoqueLojaLabel"
+     aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addItemEstoqueLojaLabel">Incluir Peça</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="addItemEstoqueLojaForm">
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="txtCodItemLoja">Código da Peça*</label>
+                            <input type="text" class="form-control resettable" id="txtCodItemLoja" name="txtCodItemLoja"
+                                   required>
+                            <div class="error-message" id="errorCodItemLoja">Campo obrigatório</div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="txtMarcaLoja">Marca*</label>
+                            <input type="text" class="form-control resettable" id="txtMarcaLoja" name="txtMarcaLoja"
+                                   required>
+                            <div class="error-message" id="errorMarcaLoja">Campo obrigatório</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="txtNomeLoja">Nome*</label>
+                        <input type="text" class="form-control resettable" id="txtNomeLoja" name="txtNomeLoja" required>
+                        <div class="error-message" id="errorNomeLoja">Campo obrigatório</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="txtDescricaoLoja">Descrição*</label>
+                        <input type="text" class="form-control resettable" id="txtDescricaoLoja" min="1"
+                               name="txtDescricaoLoja" required>
+                        <div class="error-message" id="errorDescricaoLoja">Campo obrigatório</div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="txtQtdeLoja">Quantidade*</label>
+                            <input type="number" class="form-control resettable" id="txtQtdeLoja" name="txtQtdeLoja"
+                                   required>
+                            <div class="error-message" id="errorQtdeLoja">Campo obrigatório</div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="txtPrecoLoja">Preço*</label>
+                            <input type="number" class="form-control resettable" id="txtPrecoLoja" name="txtPrecoLoja"
+                                   required>
+                            <div class="error-message" id="errorPrecoLoja">Campo obrigatório</div>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Gravar</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+
+<script src="./js/peca.js"></script>
+</body>
+</html>
